@@ -1,4 +1,3 @@
-
 /*
  * FANGEN
  * http://pl.spoj.com/problems/FANGEN/
@@ -28,7 +27,7 @@ namespace SPOJ
                     rightturn = true;
                     r *= -1;
                 }
-                result = recursiveGenerateFun(r, rightturn);
+                result = recursiveGenerateFan(r, rightturn);
                 //output
                 writeFan(result, r);
             }
@@ -53,7 +52,7 @@ namespace SPOJ
         /// </summary>
         /// <param name="newRad">Radius (half of width) of fan to generate</param>
         /// <returns>Fan</returns>
-        static char[,] recursiveGenerateFun(int newRad, bool rightturn)
+        static char[,] recursiveGenerateFan(int newRad, bool rightturn)
         {
             int dim = newRad*2;//=width=height
             int prevRad = newRad-1;
@@ -67,7 +66,7 @@ namespace SPOJ
                 return result;
             }
 
-            char[,] prevFan = recursiveGenerateFun(prevRad,rightturn);
+            char[,] prevFan = recursiveGenerateFan(prevRad,rightturn);
 
             //paste previous
             for (int x = 0; x < prevRad*2; ++x)
