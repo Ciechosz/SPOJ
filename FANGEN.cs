@@ -1,6 +1,8 @@
 /*
+ * 2014-03-28
  * FANGEN
  * http://pl.spoj.com/problems/FANGEN/
+ * score: 8/15
  */
 
 using System;
