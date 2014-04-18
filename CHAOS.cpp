@@ -67,7 +67,7 @@ string Hour::toString(bool nice){
 	else{//For checking palindromness
 		if (hours == 0){
 			stream << minutes;
-		}else if (hours !=0 && minutes < 10){//Dirty, but simpler
+		}else if (minutes < 10){//Dirty, but simpler
 			stream << hours << "0"<<minutes;
 		}
 		else{
