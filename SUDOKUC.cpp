@@ -69,17 +69,6 @@ int main(){
 			}
 		}
 		if (!wrong){
-			//Check if every number is exactly once in a row and column
-			for (int i = 0; i < 9 && !wrong; ++i){
-				for (int j = 0; j < 9 && !wrong; ++j){
-					if (!row[i][j]){
-						wrong = true;
-					}
-					else if (!column[i][j]){
-						wrong = true;
-					}
-				}
-			}
 
 			//Check squares
 			for (int i = 0; i < 3 && !wrong; ++i){
