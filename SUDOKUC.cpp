@@ -42,6 +42,7 @@ int main(){
 			}
 			if (number > 9 || number < 1){
 				wrong = true;
+                continue;
 			}
 
 			if (!row[i / 9][number - 1]){ //Check row
@@ -49,6 +50,7 @@ int main(){
 			}
 			else{
 				wrong = true;
+                continue;
 			}
 
 			if (!column[i % 9][number - 1]){ //Check column
@@ -56,6 +58,7 @@ int main(){
 			}
 			else{
 				wrong = true;
+                continue;
 			}
 
 			//Check square
@@ -66,6 +69,7 @@ int main(){
 			}
 			else{
 				wrong = true;
+                continue;
 			}
 		}
 		if (!wrong){
@@ -74,9 +78,7 @@ int main(){
 			for (int i = 0; i < 3 && !wrong; ++i){
 				for (int j = 0; j < 3 && !wrong; ++j){
 					for (int k = 0; k < 9 && !wrong; ++k){
-						if (!square[i][j][k]){
-							wrong = true;
-						}
+                        wrong = !square[i][j][k];
 					}
 				}
 			}
