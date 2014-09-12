@@ -10,7 +10,6 @@
 using namespace std;
 
 void increment(string::reverse_iterator current, string &number, short& fivesNumber, short fivesGoal, vector<bool>::reverse_iterator touchedRit, vector<bool>& touched);
-void increase(string::reverse_iterator current, string& number, short& fivesNumber, short fivesGoal, vector<bool>::reverse_iterator touchedRit, vector<bool>& touched);
 
 int main(){
 	string number;
@@ -38,7 +37,7 @@ int main(){
 	while (fivesNumber != fivesGoal){
 		string::reverse_iterator rit = number.rbegin();
 		touchedRit = touched.rbegin();
-		increase(rit, number, fivesNumber, fivesGoal, touchedRit, touched);
+		increment(rit, number, fivesNumber, fivesGoal, touchedRit, touched);
 	}
 
 	cout << number;
@@ -96,23 +95,3 @@ void increment(string::reverse_iterator current, string& number, short& fivesNum
 		}
 	}
 }
-
-//Digits other than 5 are pretty much useles, unless caused by digit >= 10
-void increase(string::reverse_iterator current, string& number, short& fivesNumber, short fivesGoal, vector<bool>::reverse_iterator touchedRit, vector<bool>& touched){
-	if (*current < '5'){
-		*current = '5';
-		*touchedRit = true;
-		++fivesNumber;
-	}
-	else{
-		if (current == --number.rend()){//There is no digit to the left
-			number = "0" + number;
-			//Set newly added 0 as touched
-			touched[touched.size() - number.length() + 1] = true;
-			current = ----number.rend();//Recreate current on the same position;
-		}
-		
-		increment(++current, number, fivesNumber, fivesGoal, ++touchedRit, touched);
-	}
-}
-
